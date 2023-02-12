@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebAppDevelopment</title>
+    <link
+      href="dist/vendors/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dist/vendors/Leaflet-1.9.2/leaflet.css" />
+    <link href="dist/libs/css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div id="search">
+        <div id="region">
+          <!-- <label for="selCountry">Select a country:&nbsp;</label> -->
+          <select class="form-control bg-light" name="selRegion" id="selRegion">
+            <option value="" selected disabled hidden>Select a region</option>
+          </select>
+        </div>
+        <div id="menu">
+          <p id="login" class="event">Login</p>
+          <p id="logout-p" class="event hide">
+            <span id="uname"></span>&nbsp;&nbsp;<span id="logout">Logout</span>
+          </p>
+        </div>
+      </div>
+    </header>
+    <div id="map"></div>
+    <div id="modal" class="hide">
+      <div id="modal-close"><span>&times;</span></div>
+      <div id="modal-content"></div>
+    </div>
+    <div id="modal-background" class="hide"></div>
+    <div id="preloader"></div>
+    <footer></footer>
+    <template id="mapPopUp">
+      <div id="pop-up">
+        <h3></h3>
+        <p></p>
+        <img class="recomend like" src="img/thumbs-up.jpg" id="like" />
+        <span>&nbsp;</span>
+        <span></span>
+        <span>&nbsp;&nbsp;</span>
+        <span class="recomend" id="review-click">Reviews</span
+        ><span>&nbsp;</span>
+        <span id="reviews">0</span>
+      </div>
+    </template>
+
+    <template id="createForm">
+      <section>
+        <div class="form-section">
+          <div class="form-div">
+            <h3>Create new Point Of Interest</h3>
+            <p>Lat Lng Country</p>
+            <div>
+              <form id="create-poi">
+                <input type="hidden" class="preset" id="poiid" />
+
+                <label for="poiname">POI Name</label>
+                <input
+                  type="text"
+                  class="preset"
+                  id="poiname"
+                  name="poiname"
+                  placeholder="POI name..."
+                />
+
+                <label for="poitype">POI Type</label>
+                <input
+                  type="text"
+                  class="preset"
+                  id="poitype"
+                  name="poitype"
+                  placeholder="POI type..."
+                />
+
+                <input type="hidden" class="preset" id="poicountry" />
+
+                <label for="poiregion">POI Region</label>
+                <input
+                  type="text"
+                  class="preset"
+                  id="poiregion"
+                  name="poiregion"
+                />
+
+                <input type="hidden" class="preset" id="poilat" />
+                <input type="hidden" class="preset" id="poilon" />
+
+                <label for="description">POI description</label>
+                <input
+                  type="text"
+                  class="preset"
+                  id="description"
+                  name="description"
+                  placeholder="POI description..."
+                />
+
+                <input type="hidden" class="preset" id="poirecommendations" />
+
+                <input type="submit" value="Create" />
+              </form>
+            </div>
+          </div>
+        </div>
+        <p class="statusMsg"></p>
+      </section>
+    </template>
+
+    <template id="loginForm">
+      <div>
+        <section class="form-section">
+          <div class="form-div">
+            <h3>User Login</h3>
+            <div>
+              <form id="user-login">
+                <label for="username">User Name</label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Enter your user name"
+                />
+
+                <label for="password">Password</label><br />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your user password"
+                />
+                <input type="submit" value="Login" />
+              </form>
+            </div>
+          </div>
+        </section>
+        <p class="statusMsg"></p>
+      </div>
+    </template>
+
+    <template id="reviewForm">
+      <div>
+        <section class="form-section">
+          <div class="form-div">
+            <h3></h3>
+            <div id="reviews-container"></div>
+            <div>
+              <form id="add-review">
+                <label for="rtext">Please write your review</label>
+                <input
+                  type="text"
+                  id="rtext"
+                  name="rtext"
+                  placeholder="Enter your user review"
+                />
+
+                <input type="submit" value="Send" />
+              </form>
+            </div>
+          </div>
+        </section>
+        <p class="statusMsg"></p>
+      </div>
+    </template>
+
+    <template id="errorDiv">
+      <div id="error-container">
+        <div class="centerY">
+          <h2 id="status-code"></h2>
+          <p id="error-msg"></p>
+        </div>
+      </div>
+    </template>
+    <script src="dist/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="dist/vendors/Leaflet-1.9.2/leaflet.js"></script>
+    <script type="module" src="dist/libs/js/script.js"></script>
+    <noscript>You have to enable Javascript to run this page</noscript>
+  </body>
+</html>
